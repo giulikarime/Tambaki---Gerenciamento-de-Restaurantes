@@ -1,5 +1,5 @@
 # TAMBAKI B2B
-Tambaki é um sistema de gerenciamento de restaurantes. O projeto, em desenvolvimento, será entregue como TCC para o Técnico em Desenvolvimento de Sistemas, turma TDS03, formandos de 2026.
+Tambaki é um sistema de gerenciamento de restaurantes. O projeto, em desenvolvimento, será entregue como TCC para o Técnico em Desenvolvimento de Sistemas, turma TDS03, formandos de 2026 SENAI Mariano Ferraz.
 
 ## Funcionalidades
 * Registro de Pedidos
