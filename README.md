@@ -16,8 +16,8 @@ Tambaki é um sistema de gerenciamento de restaurantes. O projeto, em desenvolvi
 
 ## Autores
 
-Laura S. Borges
-Júlia Resplandes
-Gabriele I. Souza
-Rafael S. Pereira
-Giuliana K. Durães
+* Laura S. Borges
+* Júlia Resplandes
+* Gabriele I. Souza
+* Rafael S. Pereira
+* Giuliana K. Durães
