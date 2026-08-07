@@ -1,20 +1,80 @@
-# TAMBAKI B2B
-Tambaki é um sistema de gerenciamento de restaurantes. O projeto, em desenvolvimento, será entregue como TCC para o Técnico em Desenvolvimento de Sistemas, turma TDS03, formandos de 2026 SENAI Mariano Ferraz.
+# TAMBAKI B2B - Gerenciamento de Restaurantes
 
-## Funcionalidades
+**Tambaki** é um sistema completo de gerenciamento de restaurantes desenvolvido como TCC para o curso Técnico em Desenvolvimento de Sistemas (Turma TDS03 - Formandos de 2026 - SENAI Mariano Ferraz).
+
+---
+
+## 📌 Funcionalidades
+
 * Registro de Pedidos
 * Análise de custos
 * Gestão de estoque
 * Abertura e Fechamento de Caixa
 * Registro e acesso com autenticação
 
-## Ferramentas
+---
 
-* React, JavaScript, CSS
-* Node.js, Express
-* PostgreSQL
+## 🛠️ Tecnologias Utilizadas
 
-## Autores
+* **Frontend**: React 19, Vite, Axios.
+* **Backend**: Node.js, Express, Cors, Dotenv, Nodemon.
+* **Banco de Dados**: PostgreSQL (`pg` pool cliente).
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+Tambaki---Gerenciamento-de-Restaurantes/
+├── node-backend/           # API REST em Node.js / Express
+│   ├── src/
+│   │   ├── config/         # Conexão PostgreSQL (database.js)
+│   │   ├── controllers/    # Controladores de regra de negócio
+│   │   ├── middlewares/    # Middlewares (Erros, Autenticação)
+│   │   ├── models/         # Modelos de Dados
+│   │   ├── routes/         # Rotas modulares da API
+│   │   └── server.js       # Ponto de entrada do servidor
+│   ├── .env                # Variáveis de ambiente locais
+│   ├── .env.example        # Modelo de variáveis de ambiente
+│   └── package.json
+│
+└── react-frontend/          # Aplicação Web em React / Vite
+    ├── src/
+    │   ├── components/     # Componentes reutilizáveis
+    │   ├── pages/          # Páginas da aplicação
+    │   ├── services/       # Cliente API Axios (api.js)
+    │   ├── App.jsx         # Componente principal
+    │   └── index.css       # Estilos globais
+    ├── .env                # Variáveis de ambiente locais
+    ├── .env.example        # Modelo de variáveis de ambiente
+    └── package.json
+```
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+### 1. Backend (`node-backend`)
+
+```bash
+cd node-backend
+npm install
+npm run dev
+```
+O servidor estará rodando em `http://localhost:3001`.
+
+### 2. Frontend (`react-frontend`)
+
+```bash
+cd react-frontend
+npm install
+npm run dev
+```
+O frontend estará acessível em `http://localhost:5173`.
+
+---
+
+## 👥 Autores
 
 * Laura S. Borges
 * Júlia Resplandes
