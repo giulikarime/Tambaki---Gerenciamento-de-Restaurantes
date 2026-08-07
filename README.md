@@ -40,11 +40,14 @@ Tambaki---Gerenciamento-de-Restaurantes/
 │
 └── react-frontend/          # Aplicação Web em React / Vite
     ├── src/
-    │   ├── components/     # Componentes reutilizáveis
-    │   ├── pages/          # Páginas da aplicação
+    │   ├── assets/         # Imagens, ícones e arquivos estáticos
+    │   ├── components/     # Componentes React reutilizáveis
+    │   ├── pages/          # Páginas da aplicação (Login, Pedidos, etc.)
     │   ├── services/       # Cliente API Axios (api.js)
+    │   ├── App.css         # Estilos específicos do componente App
     │   ├── App.jsx         # Componente principal
-    │   └── index.css       # Estilos globais
+    │   ├── index.css       # Estilos globais
+    │   └── main.jsx        # Ponto de entrada do React
     ├── .env                # Variáveis de ambiente locais
     ├── .env.example        # Modelo de variáveis de ambiente
     └── package.json
