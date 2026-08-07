@@ -4,18 +4,32 @@ const db = require('../config/database');
 
 /**
  * GET /api
- * Rota padrão de boas-vindas / teste básico de conexão.
+ * Rota padrão de boas-vindas e teste de conexão do Backend + PostgreSQL.
  */
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    let dbConectado = false;
+
+    try {
+        await db.query('SELECT 1');
+        dbConectado = true;
+    } catch (err) {
+        dbConectado = false;
+    }
+
+    const mensagem = dbConectado
+        ? 'Backend e Banco de Dados (PostgreSQL) conectados com sucesso!'
+        : 'Backend conectado com sucesso! (Banco de Dados PostgreSQL desconectado)';
+
     res.json({
         sucesso: true,
-        mensagem: 'Backend conectado com sucesso!'
+        mensagem,
+        bancoDados: dbConectado ? 'conectado' : 'desconectado'
     });
 });
 
 /**
  * GET /api/health
- * Verificação de saúde da aplicação e conectividade com o banco de dados.
+ * Verificação detalhada de saúde da aplicação e conectividade.
  */
 router.get('/health', async (req, res) => {
     let dbStatus = 'desconectado';
