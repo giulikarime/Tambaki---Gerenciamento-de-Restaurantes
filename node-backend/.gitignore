@@ -17,3 +17,5 @@ pnpm-debug.log*
 .idea/
 .DS_Store
 *.suo
+
+/generated/prisma

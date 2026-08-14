@@ -1,0 +1,135 @@
+generator client {
+  provider     = "prisma-client"
+  moduleFormat = "cjs"
+  output       = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AcessLevel {
+  Master
+  Senior
+  Pleno
+  Junior
+}
+
+enum ServiceType {
+  Mesa
+  Balcao
+}
+
+enum MenuCategory {
+  Prato
+  Sobremesa
+  Bebidas
+}
+
+enum EmployType {
+  CLT
+  Temporario
+  PJ
+}
+
+enum ShiftType {
+  Manha
+  Tarde
+  Noite
+  Full_Time
+}
+
+enum TableStatus {
+  Livre
+  Ocupado
+  Reservado
+}
+
+enum ProductsCategory {
+  Carnes
+  Hortifrúti
+  Laticínios
+  Embutidos
+  Secos
+  Limpeza
+}
+
+enum Allergens {
+  Laticinios
+  Glúten
+  Oleaginosas
+  Frutos_do_mar
+}
+
+model StoreUnit {
+  id           Int      @id @default(autoincrement())
+  company_name String   @db.VarChar(255)
+  trade_name   String   @db.VarChar(255)
+  cnpj         String   @db.VarChar(14)
+  adress       String   @db.VarChar(255)
+  email        String   @db.VarChar(255)
+  phone        String   @db.VarChar(11)
+  registeredAt DateTime @default(now())
+  updateAt     DateTime @updatedAt
+  user         User[]
+
+  @@unique([company_name, cnpj])
+}
+
+model User {
+  id               Int               @id @default(autoincrement())
+  name             String            @db.VarChar(255)
+  cpf              String            @db.VarChar(11)
+  email            String            @db.VarChar(255)
+  phone            String            @db.VarChar(11)
+  password         String            @db.VarChar(10)
+  role             String            @db.VarChar(150)
+  acess_level      AcessLevel
+  employ_type      EmployType
+  shift            ShiftType
+  hire_date        DateTime?
+  weekly_hours     Int?
+  salary           Decimal?          @db.Decimal(10, 2)
+  bankName         String?           @db.VarChar(150)
+  active           Boolean           @default(true)
+  storeUnitId      Int
+  storeUnit        StoreUnit         @relation(fields: [storeUnitId], references: [id])
+  employe_document EmployeDocument[]
+
+  @@unique([email, cpf])
+}
+
+model EmployeDocument {
+  id           Int       @id @default(autoincrement())
+  documentType String
+  file_Url     String
+  issuedAt     DateTime
+  valid_until  DateTime?
+  userId       Int
+  user         User      @relation(fields: [userId], references: [id])
+}
+
+model Supllier {
+  id               Int                @id @default(autoincrement())
+  company_name     String             @db.VarChar(255)
+  trade_name       String             @db.VarChar(255)
+  cnpj             Int
+  phone            String             @db.VarChar(11)
+  email            String             @db.VarChar(255)
+  adress           String             @db.VarChar(255)
+  businnes_hours   String
+  resposible_name  String             @db.VarChar(255)
+  payment_terms    String
+  lead_time_days   Int
+  supplier_product SupplierProducts[]
+
+  @@unique([company_name, cnpj, email])
+}
+
+model SupplierProducts {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(150)
+  price      Float
+  supplierId Int
+  supplier   Supllier @relation(fields: [supplierId], references: [id])
+}
