@@ -62,16 +62,20 @@ enum Allergens {
 }
 
 model StoreUnit {
-  id           Int      @id @default(autoincrement())
-  company_name String   @db.VarChar(255)
-  trade_name   String   @db.VarChar(255)
-  cnpj         String   @db.VarChar(14)
-  adress       String   @db.VarChar(255)
-  email        String   @db.VarChar(255)
-  phone        String   @db.VarChar(11)
-  registeredAt DateTime @default(now())
-  updateAt     DateTime @updatedAt
+  id           Int       @id @default(autoincrement())
+  company_name String    @db.VarChar(255)
+  trade_name   String    @db.VarChar(255)
+  cnpj         String    @db.VarChar(14)
+  adress       String    @db.VarChar(255)
+  email        String    @db.VarChar(255)
+  phone        String    @db.VarChar(11)
+  registeredAt DateTime  @default(now())
+  updateAt     DateTime  @updatedAt
   user         User[]
+  product      Product[]
+  menu         Menu[]
+  tables       Table[]
+  order        Order[]
 
   @@unique([company_name, cnpj])
 }
@@ -109,7 +113,7 @@ model EmployeDocument {
   user         User      @relation(fields: [userId], references: [id])
 }
 
-model Supllier {
+model Supplier {
   id               Int                @id @default(autoincrement())
   company_name     String             @db.VarChar(255)
   trade_name       String             @db.VarChar(255)
@@ -122,6 +126,7 @@ model Supllier {
   payment_terms    String
   lead_time_days   Int
   supplier_product SupplierProducts[]
+  products         Product[]
 
   @@unique([company_name, cnpj, email])
 }
@@ -131,5 +136,70 @@ model SupplierProducts {
   name       String   @db.VarChar(150)
   price      Float
   supplierId Int
-  supplier   Supllier @relation(fields: [supplierId], references: [id])
+  supplier   Supplier @relation(fields: [supplierId], references: [id])
 }
+
+model Product {
+  id               Int              @id @default(autoincrement())
+  name             String           @db.VarChar(150)
+  cost_price       Float
+  category         ProductsCategory
+  brand            String           @db.VarChar(150)
+  allergens        Allergens[]
+  stock_quantity   Int
+  unit_of_measure  String           @db.VarChar(50)
+  current_stock    Int
+  min_stock        Int
+  manufacture_date DateTime
+  expiration_date  DateTime
+  available        Boolean          @default(true)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  supplierId       Int
+  supplier         Supplier         @relation(fields: [supplierId], references: [id])
+  unitId           Int
+  unit             StoreUnit        @relation(fields: [unitId], references: [id])
+}
+
+model Menu {
+  id          Int          @id @default(autoincrement())
+  name        String       @db.VarChar(255)
+  description String       @db.VarChar(255)
+  category    MenuCategory
+  price       Float
+  available   Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  unitId      Int
+  unit        StoreUnit    @relation(fields: [unitId], references: [id])
+  order      Order[]
+}
+
+model Table {
+  id           Int         @id @default(autoincrement())
+  table_number Int
+  capacity     Int
+  status       TableStatus
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  unitId       Int
+  unit         StoreUnit   @relation(fields: [unitId], references: [id])
+  Order        Order?
+}
+
+model Order {
+  id          Int       @id @default(autoincrement())
+  total_value Float
+  service_type ServiceType
+  quantity    Int
+  order_date  DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  menuId     Int
+  menu       Menu      @relation(fields: [menuId], references: [id])
+  tableId     Int @unique
+  table       Table     @relation(fields: [tableId], references: [id])
+  unitId      Int
+  unit        StoreUnit @relation(fields: [unitId], references: [id])
+}
+
+
