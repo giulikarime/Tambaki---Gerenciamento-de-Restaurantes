@@ -84,7 +84,7 @@ Acesse a pasta do backend e instale as dependências:
 ```bash
 cd node-backend
 npm install
-npx prisma migrate dev --name init_local
+npx prisma migrate reset
 prisma generate 
 npx tsx .\prisma\seed.ts
 ```
@@ -141,7 +141,7 @@ react-frontend/.env.example
 
 * Laura S. Borges
 * Júlia Resplandes
-* Gabriele I. Souza
+* Gabriele I. Sousa
 * Rafael S. Pereira
 * Giuliana K. Durães
 
