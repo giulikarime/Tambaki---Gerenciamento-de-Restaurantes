@@ -84,6 +84,9 @@ Acesse a pasta do backend e instale as dependências:
 ```bash
 cd node-backend
 npm install
+npx prisma migrate dev --name init_local
+prisma generate 
+npx tsx .\prisma\seed.ts
 ```
 
 Inicie o servidor em modo de desenvolvimento:
@@ -147,3 +150,5 @@ react-frontend/.env.example
 ## Projeto Acadêmico
 
 Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC) do curso **Técnico em Desenvolvimento de Sistemas — TDS03**, do **SENAI Mariano Ferraz**, com conclusão prevista para 2026.
+
+
