@@ -1,174 +1,149 @@
-\# TAMBAKI B2B - Gerenciamento de Restaurantes
+# TambaKi B2B — Gerenciamento de Restaurantes
 
+**TambaKi** é um sistema completo de gerenciamento de restaurantes, desenvolvido como Trabalho de Conclusão de Curso (TCC) para o curso Técnico em Desenvolvimento de Sistemas — Turma TDS03, formandos de 2026, do SENAI Mariano Ferraz.
 
+---
 
-\*\*Tambaki\*\* é um sistema completo de gerenciamento de restaurantes desenvolvido como TCC para o curso Técnico em Desenvolvimento de Sistemas (Turma TDS03 - Formandos de 2026 - SENAI Mariano Ferraz).
+## Funcionalidades
 
+* Registro e gerenciamento de pedidos
+* Análise de custos
+* Gestão de estoque
+* Abertura e fechamento de caixa
+* Cadastro e autenticação de usuários
 
+---
 
-\---
+## Tecnologias Utilizadas
 
+### Frontend
 
+* React 19
+* Vite
+* Axios
 
-\## 📌 Funcionalidades
+### Backend
 
+* Node.js
+* Express
+* CORS
+* Dotenv
+* Nodemon
 
+### Banco de Dados
 
-\* Registro de Pedidos
+* PostgreSQL
+* `pg` — cliente para conexão com PostgreSQL
 
-\* Análise de custos
+---
 
-\* Gestão de estoque
-
-\* Abertura e Fechamento de Caixa
-
-\* Registro e acesso com autenticação
-
-
-
-\---
-
-
-
-\## 🛠️ Tecnologias Utilizadas
-
-
-
-\* \*\*Frontend\*\*: React 19, Vite, Axios.
-
-\* \*\*Backend\*\*: Node.js, Express, Cors, Dotenv, Nodemon.
-
-\* \*\*Banco de Dados\*\*: PostgreSQL (`pg` pool cliente).
-
-
-
-\---
-
-
-
-\## 📂 Estrutura do Projeto
-
-
+## Estrutura do Projeto
 
 ```text
-
 Tambaki---Gerenciamento-de-Restaurantes/
-
-├── node-backend/           # API REST em Node.js / Express
-
-│   ├── src/
-
-│   │   ├── config/         # Conexão PostgreSQL (database.js)
-
-│   │   ├── controllers/    # Controladores de regra de negócio
-
-│   │   ├── middlewares/    # Middlewares (Erros, Autenticação)
-
-│   │   ├── models/         # Modelos de Dados
-
-│   │   ├── routes/         # Rotas modulares da API
-
-│   │   └── server.js       # Ponto de entrada do servidor
-
-│   ├── .env                # Variáveis de ambiente locais
-
-│   ├── .env.example        # Modelo de variáveis de ambiente
-
-│   └── package.json
-
 │
-
-└── react-frontend/          # Aplicação Web em React / Vite
-
-&#x20;   ├── src/
-
-&#x20;   │   ├── assets/         # Imagens, ícones e arquivos estáticos
-
-&#x20;   │   ├── components/     # Componentes React reutilizáveis
-
-&#x20;   │   ├── pages/          # Páginas da aplicação (Login, Pedidos, etc.)
-
-&#x20;   │   ├── services/       # Cliente API Axios (api.js)
-
-&#x20;   │   ├── App.css         # Estilos específicos do componente App
-
-&#x20;   │   ├── App.jsx         # Componente principal
-
-&#x20;   │   ├── index.css       # Estilos globais
-
-&#x20;   │   └── main.jsx        # Ponto de entrada do React
-
-&#x20;   ├── .env                # Variáveis de ambiente locais
-
-&#x20;   ├── .env.example        # Modelo de variáveis de ambiente
-
-&#x20;   └── package.json
-
+├── node-backend/                  # API REST em Node.js / Express
+│   ├── src/
+│   │   ├── config/                # Configuração da conexão com PostgreSQL
+│   │   │   └── database.js
+│   │   ├── controllers/           # Controladores e regras de negócio
+│   │   ├── middlewares/           # Middlewares de autenticação e tratamento de erros
+│   │   ├── models/                # Modelos de dados
+│   │   ├── routes/                # Rotas modulares da API
+│   │   └── server.js              # Ponto de entrada do servidor
+│   │
+│   ├── .env                       # Variáveis de ambiente locais
+│   ├── .env.example               # Modelo de variáveis de ambiente
+│   └── package.json
+│
+└── react-frontend/                # Aplicação web em React / Vite
+    ├── src/
+    │   ├── assets/                # Imagens, ícones e arquivos estáticos
+    │   ├── components/            # Componentes React reutilizáveis
+    │   ├── pages/                 # Páginas da aplicação
+    │   ├── services/              # Serviços e comunicação com a API
+    │   │   └── api.js
+    │   ├── App.css                # Estilos do componente App
+    │   ├── App.jsx                # Componente principal
+    │   ├── index.css              # Estilos globais
+    │   └── main.jsx               # Ponto de entrada do React
+    │
+    ├── .env                       # Variáveis de ambiente locais
+    ├── .env.example               # Modelo de variáveis de ambiente
+    └── package.json
 ```
 
+---
 
+## Como Executar o Projeto
 
-\---
+### 1. Backend
 
-
-
-\## ⚙️ Como Executar o Projeto
-
-
-
-\### 1. Backend (`node-backend`)
-
-
+Acesse a pasta do backend e instale as dependências:
 
 ```bash
-
 cd node-backend
-
 npm install
-
-npm run dev
-
 ```
 
-O servidor estará rodando em `http://localhost:3001`.
-
-
-
-\### 2. Frontend (`react-frontend`)
-
-
+Inicie o servidor em modo de desenvolvimento:
 
 ```bash
-
-cd react-frontend
-
-npm install
-
 npm run dev
-
 ```
 
-O frontend estará acessível em `http://localhost:5173`.
+O backend estará disponível em:
 
+```text
+http://localhost:3001
+```
 
+### 2. Frontend
 
-\---
+Em outro terminal, acesse a pasta do frontend:
 
+```bash
+cd react-frontend
+npm install
+```
 
+Inicie a aplicação:
 
-\## 👥 Autores
+```bash
+npm run dev
+```
 
+O frontend estará disponível em:
 
+```text
+http://localhost:5173
+```
 
-\* Laura S. Borges
+---
 
-\* Júlia Resplandes
+## Variáveis de Ambiente
 
-\* Gabriele I. Souza
+Antes de executar o projeto, configure os arquivos `.env` de acordo com os modelos disponibilizados em:
 
-\* Rafael S. Pereira
+```text
+node-backend/.env.example
+react-frontend/.env.example
+```
 
-\* Giuliana K. Durães
+> **Importante:** nunca compartilhe ou versione arquivos `.env` que contenham senhas, chaves ou outras informações sensíveis.
 
+---
 
+## Autores
 
+* Laura S. Borges
+* Júlia Resplandes
+* Gabriele I. Souza
+* Rafael S. Pereira
+* Giuliana K. Durães
+
+---
+
+## Projeto Acadêmico
+
+Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC) do curso **Técnico em Desenvolvimento de Sistemas — TDS03**, do **SENAI Mariano Ferraz**, com conclusão prevista para 2026.
