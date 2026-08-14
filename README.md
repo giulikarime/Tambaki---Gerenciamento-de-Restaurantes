@@ -1,6 +1,6 @@
-# TambaKi B2B — Gerenciamento de Restaurantes
+# Tambaki B2B — Gerenciamento de Restaurantes
 
-**TambaKi** é um sistema completo de gerenciamento de restaurantes, desenvolvido como Trabalho de Conclusão de Curso (TCC) para o curso Técnico em Desenvolvimento de Sistemas — Turma TDS03, formandos de 2026, do SENAI Mariano Ferraz.
+**Tambaki** é um sistema completo de gerenciamento de restaurantes, desenvolvido como Trabalho de Conclusão de Curso (TCC) para o curso Técnico em Desenvolvimento de Sistemas — Turma TDS03, formandos de 2026, do SENAI Mariano Ferraz.
 
 ---
 
