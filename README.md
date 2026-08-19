@@ -24,8 +24,7 @@
 
 ### Backend
 
-* Node.js
-* Express
+*NestJS
 * CORS
 * Dotenv
 * Nodemon
@@ -33,7 +32,6 @@
 ### Banco de Dados
 
 * PostgreSQL
-* `pg` — cliente para conexão com PostgreSQL
 
 ---
 
@@ -82,11 +80,11 @@ Tambaki---Gerenciamento-de-Restaurantes/
 Acesse a pasta do backend e instale as dependências:
 
 ```bash
-cd node-backend
+cd nest-backend
 npm install
 npx prisma migrate reset
-prisma generate 
-npx tsx .\prisma\seed.ts
+npx prisma db seed
+npx prisma generate
 ```
 
 Inicie o servidor em modo de desenvolvimento:

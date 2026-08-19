@@ -1,3 +1,4 @@
+
 generator client {
   provider     = "prisma-client"
   moduleFormat = "cjs"
@@ -61,47 +62,47 @@ enum Allergens {
   Frutos_do_mar
 }
 
-model StoreUnit {
-  id           Int       @id @default(autoincrement())
-  company_name String    @db.VarChar(255)
-  trade_name   String    @db.VarChar(255)
-  cnpj         String    @db.VarChar(14)
-  adress       String    @db.VarChar(255)
-  email        String    @db.VarChar(255)
-  phone        String    @db.VarChar(11)
-  registeredAt DateTime  @default(now())
-  updateAt     DateTime  @updatedAt
-  user         User[]
-  product      Product[]
-  menu         Menu[]
-  tables       Table[]
-  order        Order[]
+    model StoreUnit {
+      id           Int       @id @default(autoincrement())
+      company_name String    @db.VarChar(255)
+      trade_name   String    @db.VarChar(255)
+      cnpj         String    @db.VarChar(14)
+      adress       String    @db.VarChar(255)
+      email        String    @db.VarChar(255)
+      phone        String    @db.VarChar(11)
+      registeredAt DateTime  @default(now())
+      updateAt     DateTime  @updatedAt
+      user         User[]
+      product      Product[]
+      menu         Menu[]
+      tables       Table[]
+      order        Order[]
 
-  @@unique([company_name, cnpj])
-}
+      @@unique([company_name, cnpj])
+    }
 
-model User {
-  id               Int               @id @default(autoincrement())
-  name             String            @db.VarChar(255)
-  cpf              String            @db.VarChar(11)
-  email            String            @db.VarChar(255)
-  phone            String            @db.VarChar(11)
-  password         String            @db.VarChar(10)
-  role             String            @db.VarChar(150)
-  acess_level      AcessLevel
-  employ_type      EmployType
-  shift            ShiftType
-  hire_date        DateTime?
-  weekly_hours     Int?
-  salary           Decimal?          @db.Decimal(10, 2)
-  bankName         String?           @db.VarChar(150)
-  active           Boolean           @default(true)
-  storeUnitId      Int
-  storeUnit        StoreUnit         @relation(fields: [storeUnitId], references: [id])
-  employe_document EmployeDocument[]
+    model User {
+      id               Int               @id @default(autoincrement())
+      name             String            @db.VarChar(255)
+      cpf              String            @db.VarChar(11)
+      email            String            @db.VarChar(255)
+      phone            String            @db.VarChar(11)
+      password         String            @db.VarChar(10)
+      role             String            @db.VarChar(150)
+      acess_level      AcessLevel
+      employ_type      EmployType
+      shift            ShiftType
+      hire_date        DateTime?
+      weekly_hours     Int?
+      salary           Decimal?          @db.Decimal(10, 2)
+      bankName         String?           @db.VarChar(150)
+      active           Boolean           @default(true)
+      storeUnitId      Int
+      storeUnit        StoreUnit         @relation(fields: [storeUnitId], references: [id])
+      employe_document EmployeDocument[]
 
-  @@unique([email, cpf])
-}
+      @@unique([email, cpf])
+    }
 
 model EmployeDocument {
   id           Int       @id @default(autoincrement())
