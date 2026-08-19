@@ -5,7 +5,7 @@ import {
   EmployType,
   PrismaClient,
   ShiftType,
-} from '../generated/prisma/client.js';
+} from '../src/generated/prisma/client.js';
 
 const adapter = new PrismaPg({
   connectionString: process.env['DATABASE_URL'],

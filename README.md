@@ -83,14 +83,15 @@ Acesse a pasta do backend e instale as dependências:
 cd nest-backend
 npm install
 npx prisma migrate reset
-npx prisma db seed
 npx prisma generate
+npx prisma db seed
+
 ```
 
 Inicie o servidor em modo de desenvolvimento:
 
 ```bash
-npm run dev
+npm run start:dev
 ```
 
 O backend estará disponível em:
