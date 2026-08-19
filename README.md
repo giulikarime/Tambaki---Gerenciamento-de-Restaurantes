@@ -20,14 +20,16 @@
 
 * React 19
 * Vite
+* Tailwind CSS
 * Axios
+* React Router DOM
 
 ### Backend
 
-*NestJS
-* CORS
-* Dotenv
-* Nodemon
+* NestJS
+* Prisma ORM
+* TypeScript
+* RxJS
 
 ### Banco de Dados
 
@@ -40,34 +42,30 @@
 ```text
 Tambaki---Gerenciamento-de-Restaurantes/
 │
-├── node-backend/                  # API REST em Node.js / Express
+├── nest-backend/                  # API REST em NestJS & TypeScript
+│   ├── prisma/
+│   │   ├── migrations/            # Migrações do banco de dados
+│   │   ├── schema.prisma          # Esquema de dados (Prisma)
+│   │   └── seed.ts                # População inicial do banco de dados
 │   ├── src/
-│   │   ├── config/                # Configuração da conexão com PostgreSQL
-│   │   │   └── database.js
-│   │   ├── controllers/           # Controladores e regras de negócio
-│   │   ├── middlewares/           # Middlewares de autenticação e tratamento de erros
-│   │   ├── models/                # Modelos de dados
-│   │   ├── routes/                # Rotas modulares da API
-│   │   └── server.js              # Ponto de entrada do servidor
-│   │
-│   ├── .env                       # Variáveis de ambiente locais
-│   ├── .env.example               # Modelo de variáveis de ambiente
+│   │   ├── auth/                  # Módulo de autenticação (Login, DTOs, Service, Controller)
+│   │   ├── generated/             # Cliente Prisma gerado automaticamente
+│   │   ├── app.module.ts          # Módulo principal da aplicação
+│   │   └── main.ts                # Ponto de entrada do NestJS
+│   ├── .env.example               # Modelo de variáveis de ambiente do backend
 │   └── package.json
 │
-└── react-frontend/                # Aplicação web em React / Vite
+└── react-frontend/                # Aplicação web em React 19 + Vite
     ├── src/
-    │   ├── assets/                # Imagens, ícones e arquivos estáticos
-    │   ├── components/            # Componentes React reutilizáveis
-    │   ├── pages/                 # Páginas da aplicação
-    │   ├── services/              # Serviços e comunicação com a API
-    │   │   └── api.js
-    │   ├── App.css                # Estilos do componente App
-    │   ├── App.jsx                # Componente principal
-    │   ├── index.css              # Estilos globais
+    │   ├── assets/                # Imagens, logos e recursos estáticos
+    │   ├── components/            # Componentes reutilizáveis de interface
+    │   ├── pages/                 # Páginas da aplicação (FirstAccess, Login, etc.)
+    │   ├── services/              # Configuração do Axios e integração com a API
+    │   ├── App.jsx                # Componente raiz e rotas
+    │   ├── index.css              # Configurações globais de estilos e Tailwind
     │   └── main.jsx               # Ponto de entrada do React
-    │
-    ├── .env                       # Variáveis de ambiente locais
-    ├── .env.example               # Modelo de variáveis de ambiente
+    ├── .env.example               # Modelo de variáveis de ambiente do frontend
+    ├── vite.config.js             # Configuração do Vite
     └── package.json
 ```
 
@@ -97,7 +95,7 @@ npm run start:dev
 O backend estará disponível em:
 
 ```text
-http://localhost:3001
+http://localhost:3000
 ```
 
 ### 2. Frontend
@@ -128,7 +126,7 @@ http://localhost:5173
 Antes de executar o projeto, configure os arquivos `.env` de acordo com os modelos disponibilizados em:
 
 ```text
-node-backend/.env.example
+nest-backend/.env.example
 react-frontend/.env.example
 ```
 
