@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SeaLogin from "../../components/SeaLogin/SeaLogin";
 import LogoRestaurant from "../../components/LogoRestaurant/LogoRestaurant";
 import { login } from "../../services/auth";
+import "./CSS/login.css";
 
 function Login() {
     const [form, setForm] = useState({ email: "", password: "" });
@@ -38,7 +39,7 @@ function Login() {
         <main>
             <SeaLogin />
 
-            <div>
+            <div id="formulario">
                 <section>
                     <h1> Bem vindo(a) <br />de volta</h1>
 
@@ -73,12 +74,15 @@ function Login() {
                             {loading ? "Entrando..." : "Entrar"}
                         </button>
 
-                        
+
                         <a href="/esqueci-senha">Esqueci minha senha</a>
                     </form>
                 </section>
 
-                <LogoRestaurant />
+                <div id="imgTambaki-left">
+                    <LogoRestaurant />
+                </div>
+
             </div>
         </main>
     );
