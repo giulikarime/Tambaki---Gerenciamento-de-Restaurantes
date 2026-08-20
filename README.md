@@ -20,7 +20,6 @@
 
 * React 19
 * Vite
-* Tailwind CSS
 * Axios
 * React Router DOM
 
