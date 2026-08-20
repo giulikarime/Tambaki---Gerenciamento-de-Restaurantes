@@ -90,6 +90,7 @@ model Client {
   password String @db.VarChar(60)
   acess_level String @db.VarChar(100)
   status Boolean @db.Boolean
+  createDate DateTime @default(now()) @db.Date
 }
 
 model User {
