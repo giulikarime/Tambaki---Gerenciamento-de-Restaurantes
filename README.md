@@ -77,8 +77,10 @@ Tambaki---Gerenciamento-de-Restaurantes/
 
 Garanta que você possui o pgAdmin (Postgresql) instalado na sua máquina com as senhas.
 
+```bash
 user: postgres
 senha: postgres
+```
 
 ### 2. Backend
 
