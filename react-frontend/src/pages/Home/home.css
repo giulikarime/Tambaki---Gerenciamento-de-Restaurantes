@@ -1,0 +1,39 @@
+
+main{
+    height: 100vh;
+    background-color: #fff8e9;
+}
+
+header{
+    background-color:#191444;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+#group-one{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+#group-two{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+img{
+    width:40px;
+    height: 40px;
+}
+
+button:hover{
+    cursor: pointer;
+}
