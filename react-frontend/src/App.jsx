@@ -6,7 +6,7 @@ import {Routes,Route} from 'react-router-dom'
 function App() {
 
   return (
-    <main className='bg-[#fff8e9] min-h-screen font-[Montserrat]'>
+    <main>
       <Routes>
         <Route path='/' element={<Login/>}></Route>
         <Route path='/dashboard' element={<Home/>}></Route>

@@ -73,7 +73,14 @@ Tambaki---Gerenciamento-de-Restaurantes/
 
 ## Como Executar o Projeto
 
-### 1. Backend
+### 1. Banco de Dados
+
+Garanta que você possui o pgAdmin (Postgresql) instalado na sua máquina com as senhas.
+
+user: postgres
+senha: postgres
+
+### 2. Backend
 
 Acesse a pasta do backend e instale as dependências:
 
@@ -83,13 +90,12 @@ npm install
 npx prisma migrate reset
 npx prisma generate
 npx prisma db seed
-
 ```
 
 Inicie o servidor em modo de desenvolvimento:
 
 ```bash
-npm run start:dev
+npm run start
 ```
 
 O backend estará disponível em:
@@ -98,7 +104,7 @@ O backend estará disponível em:
 http://localhost:3000
 ```
 
-### 2. Frontend
+### 3. Frontend
 
 Em outro terminal, acesse a pasta do frontend:
 

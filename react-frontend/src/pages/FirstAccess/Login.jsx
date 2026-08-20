@@ -35,33 +35,14 @@ function Login() {
     };
 
     return (
-        <main className="relative min-h-screen lg:h-screen overflow-hidden isolate bg-[#fdf1e0]">
+        <main>
             <SeaLogin />
 
-            {/* Wrapper: empilhado (mobile/tablet) até lg; duas colunas a partir de lg */}
-            <div
-                className="
-                    relative z-10 flex flex-col items-center justify-center
-                    min-h-screen px-4 sm:px-6 py-10 sm:py-12
-                    lg:block lg:h-full lg:min-h-0 lg:px-0 lg:py-0
-                "
-            >
-                <section
-                    className="
-                        flex flex-col justify-center gap-5 sm:gap-8 w-full max-w-xs sm:max-w-sm
-                        pb-8 sm:pb-10
-                        lg:absolute lg:inset-y-0 lg:left-[80px] xl:left-[220px]
-                        lg:max-w-none lg:w-[400px] lg:pb-0
-                    "
-                >
-                    <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy text-center">
-                        Bem vindo(a) <br />de volta
-                    </h1>
+            <div>
+                <section>
+                    <h1> Bem vindo(a) <br />de volta</h1>
 
-                    <form
-                        onSubmit={handleSubmit}
-                        className="flex flex-col gap-3 sm:gap-4 w-full"
-                    >
+                    <form onSubmit={handleSubmit}>
                         <input
                             type="email"
                             name="email"
@@ -70,12 +51,6 @@ function Login() {
                             value={form.email}
                             onChange={handleChange}
                             required
-                            className="
-                                w-full rounded-lg border border-navy/30 lg:border-white/70 bg-transparent
-                                px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base
-                                text-navy lg:text-white placeholder-navy/50 lg:placeholder-white/80
-                                outline-none focus:border-[#f5ae47] transition-colors
-                            "
                         />
                         <input
                             type="password"
@@ -85,38 +60,21 @@ function Login() {
                             value={form.password}
                             onChange={handleChange}
                             required
-                            className="
-                                w-full rounded-lg border border-navy/30 lg:border-white/70 bg-transparent
-                                px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base
-                                text-navy lg:text-white placeholder-navy/50 lg:placeholder-white/80
-                                outline-none focus:border-[#f5ae47] transition-colors
-                            "
                         />
 
                         {error && (
-                            <p className="text-sm text-red-600 text-center">
-                                {error}
-                            </p>
+                            <p>{error}</p>
                         )}
 
                         <button
                             type="submit"
                             disabled={loading}
-                            className="
-                                w-full rounded-lg py-2.5 sm:py-3 text-sm sm:text-base
-                                hover:brightness-95 active:brightness-90 transition bg-[#f5ae47]
-                                disabled:opacity-60
-                            "
                         >
                             {loading ? "Entrando..." : "Entrar"}
                         </button>
 
                         
-                        <a    href="/esqueci-senha"
-                            className="text-xs sm:text-sm underline text-center text-[#f5ae47]"
-                        >
-                            Esqueci minha senha
-                        </a>
+                        <a href="/esqueci-senha">Esqueci minha senha</a>
                     </form>
                 </section>
 
