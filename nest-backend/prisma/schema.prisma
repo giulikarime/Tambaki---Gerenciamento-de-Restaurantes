@@ -172,6 +172,8 @@ model Product {
   supplier         Supplier         @relation(fields: [supplierId], references: [id])
   unitId           Int
   unit             StoreUnit        @relation(fields: [unitId], references: [id])
+
+  @@unique([name])
 }
 
 model Menu {

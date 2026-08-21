@@ -87,7 +87,7 @@ async function main() {
   const suppliers = [{
     company_name: 'Fornecedor de Doces LTDA',
     trade_name: 'Doces & Cia',
-    cnpj: '33.668.529/0001-37',
+    cnpj: '33668529000137',
     phone: '11987654322',
     email: 'fornecedor@docesecia.com',
     adress: 'Avenida das Flores, 456, Centro',
@@ -98,11 +98,17 @@ async function main() {
   }];
 
   for (const supplier of suppliers) {
-    const existingSuppliers = await prisma.supplier.findMany({
-      where: { email: supplier.email },
-      orderBy: { id: 'asc' },
+    await prisma.supplier.upsert({
+      where: {
+        company_name_cnpj_email: {
+          company_name: supplier.company_name,
+          cnpj: supplier.cnpj,
+          email: supplier.email,
+        },
+      },
+      update: supplier,
+      create: supplier,
     });
-    
   }
   console.log(' Seed executado com sucesso!');
 }
