@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: 'http://localhost:5173', // ajuste pra porta do seu React (Vite=5173, CRA=3000... troque a do Nest se bater)
+    origin: ['http://localhost:5173', 'http://localhost:5174'], // ajuste pra porta do seu React (Vite=5173, CRA=3000... troque a do Nest se bater)
     credentials: true,
   });
 
