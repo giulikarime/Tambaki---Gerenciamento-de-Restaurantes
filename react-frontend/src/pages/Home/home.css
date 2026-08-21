@@ -1,0 +1,120 @@
+main{
+    height: 100vh;
+    background-color: #fff8e9;
+    width: 100vw;
+    position: relative;
+}
+
+header{
+    background-color:#191444;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    color: white;
+}
+
+#group-one{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+#group-two{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+img{
+    width:40px;
+    height: 40px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#sidebar{
+    height: 100vh;
+    width: 100px;
+    background-color: #191444;
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar-notexpanded{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(75%);
+}
+#sidebar-expanded{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    justify-content: center;
+    height: 100%;
+    font-size: 20px;
+    background-color: #191444;
+    padding-left: 50%;
+    padding-right: 50%;
+}
+
+#sidebar-expanded p{
+    white-space: nowrap;
+    color: white;
+}
+
+.search-input{
+    background-image: url('../../assets/header/search_icon.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 40px 25px;
+}
+
+#principal-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    top: 50%;
+    left: 65%;
+    position: absolute;
+    transform: translate(-65%,-0%);
+}
+
+#btn-group{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.principal-btn{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 35px;
+    border-radius: 20px;
+    width: 350px;
+    height: 230px;
+    text-align: left;
+}
+
+.principal-btn p{
+    font-size: 18px;
+}
+
+.principal-btn h2{
+    font-size: 23px;
+}
