@@ -130,7 +130,7 @@ model Supplier {
   id               Int                @id @default(autoincrement())
   company_name     String             @db.VarChar(255)
   trade_name       String             @db.VarChar(255)
-  cnpj             Int
+  cnpj             String             @db.VarChar(18)
   phone            String             @db.VarChar(11)
   email            String             @db.VarChar(255)
   adress           String             @db.VarChar(255)
@@ -172,6 +172,8 @@ model Product {
   supplier         Supplier         @relation(fields: [supplierId], references: [id])
   unitId           Int
   unit             StoreUnit        @relation(fields: [unitId], references: [id])
+
+  @@unique([name])
 }
 
 model Menu {
