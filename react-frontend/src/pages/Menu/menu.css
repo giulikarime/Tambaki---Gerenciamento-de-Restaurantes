@@ -118,3 +118,30 @@ button:hover{
 .principal-btn h2{
     font-size: 23px;
 }
+
+#menu-title{
+    display: flex;
+    align-items: left;
+}
+
+#menu-header{
+    display: flex;
+    align-items: left;
+}
+
+#container-menu{
+    display: flex;
+    justify-content:center;
+    flex-direction: row;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.card-menu{
+    background-color: #fff8e9;
+    border: 1px solid #191444;
+    border-radius: 10px;
+    padding: 16px;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
