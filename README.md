@@ -112,6 +112,8 @@ Em outro terminal, acesse a pasta do frontend:
 ```bash
 cd react-frontend
 npm install
+npm install lucide-react
+npm install react-modal
 ```
 
 Inicie a aplicação:
