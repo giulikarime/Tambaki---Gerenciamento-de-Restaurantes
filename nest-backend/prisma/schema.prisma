@@ -214,5 +214,3 @@ model Order {
   unitId      Int
   unit        StoreUnit @relation(fields: [unitId], references: [id])
 }
-
-

@@ -65,3 +65,35 @@ button:hover {
 .principal-btn h2 {
     font-size: 20px;
 }
+
+.table-card{
+    width: 70px;
+    height: 35px;
+    border-radius: 30px;
+    padding: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 18px;
+}
+
+.table-card.blue{
+    border: 4px solid #87b3f2;
+    color: black;
+}
+
+.table-card.blue #p-table-status{
+    color: #3553b5;
+}
+
+.table-card.orange{
+    border: 4px solid #191444;
+    background-color: #191444;
+    color: white; 
+}
+
+.table-card.orange #p-table-status{
+    color: #f5ae47;
+}
