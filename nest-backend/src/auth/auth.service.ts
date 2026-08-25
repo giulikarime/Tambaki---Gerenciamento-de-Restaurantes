@@ -66,6 +66,12 @@ export class AuthService {
     throw new UnauthorizedException('E-mail ou senha inválidos');
   }
 
+  async logout() {
+    return {
+      message: 'Logout realizado com sucesso!',
+    };
+  }
+
   private async authenticateUser(
     user: NonNullable<
       Awaited<ReturnType<PrismaService['user']['findFirst']>>
