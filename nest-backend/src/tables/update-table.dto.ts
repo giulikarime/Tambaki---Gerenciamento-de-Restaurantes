@@ -1,5 +1,5 @@
 import { IsEnum, IsInt, IsOptional, Min } from 'class-validator';
-import { TableStatus } from '../generated/prisma/client';
+import { TableStatus } from '../../generated/prisma/client';
 
 export class UpdateTableDto {
   @IsOptional()

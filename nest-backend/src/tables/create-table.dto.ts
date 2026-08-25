@@ -1,5 +1,5 @@
 import { IsEnum, IsInt, IsNotEmpty, Min } from 'class-validator';
-import { TableStatus } from '../generated/prisma/client';
+import { TableStatus } from '../../generated/prisma/client';
 
 export class CreateTableDto {
   @IsInt({ message: 'O número da mesa deve ser um número inteiro.' })

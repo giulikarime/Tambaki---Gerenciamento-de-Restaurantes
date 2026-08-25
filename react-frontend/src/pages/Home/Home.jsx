@@ -4,6 +4,7 @@ import './home.css'
 import Header from "../../components/HeaderAndSidebar/Header"
 import Sidebar from "../../components/HeaderAndSidebar/Sidebar";
 import { getTables } from "../../services/tables";
+import { getOrders } from "../../services/orders";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
@@ -35,6 +36,19 @@ function Home() {
         loadTables();
     },[])
 
+    useEffect(()=>{
+        async function loadOrders(){
+            try{
+                const orders = await getOrders();
+                setOrderList(orders);
+            } catch(error){
+                console.error("Erro ao carregar comandas: ",error.message);
+            }
+        }
+
+        loadOrders();
+    },[])
+
     return (
 
         <>
@@ -64,7 +78,7 @@ function Home() {
                         </button>
                     </div>
                     <div id="tables-group" style={{display:'flex',flexDirection:'column',gap:30,alignItems:'center'}}>
-                        <h3>Mesas da unidade</h3>
+                        <button style={{fontSize:18}}><b>Mesas da unidade +</b></button>
                         <div id="tables-list" style={{display:'flex',flexDirection:'row',gap:30}}>
                             {tablesList.length === 0 ? (
                                 <p>Nenhuma mesa foi criada.</p>
